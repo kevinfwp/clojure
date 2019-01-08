@@ -61,7 +61,16 @@ user=> (frequencies "hello")
 user=> (every? #(Character/isLetter %) "hello")
 true
 
-
+user=> (first '(1 2 3))
+1
+user=> (second '(1 2 3))
+2
+user=> (first (next '(1 2 3)))
+2
+user=> (next '(1 2 3))
+(2 3)
+user=> (last '(1 2 3))
+3
 
 clojure.string/blank?
 clojure.string/capitalize
@@ -156,4 +165,74 @@ Math/toRadians
 Math/twoToTheDoubleScaleDown
 Math/twoToTheDoubleScaleUp
 Math/ulp
+
+Integer/BYTES
+Integer/DigitOnes
+Integer/DigitTens
+Integer/MAX_VALUE
+
+user=> Integer/MAX_VALUE
+2147483647
+
+Integer/MIN_VALUE
+
+user=> Integer/MIN_VALUE
+-2147483648
+
+Integer/SIZE
+Integer/TYPE
+Integer/bitCount
+Integer/compare
+Integer/compareUnsigned
+Integer/decode
+Integer/digits
+Integer/divideUnsigned
+Integer/getInteger
+Integer/hashCode
+Integer/highestOneBit
+Integer/lowestOneBit
+Integer/max
+Integer/min
+Integer/numberOfLeadingZeros
+Integer/numberOfTrailingZeros
+Integer/parseInt
+Integer/parseUnsignedInt
+Integer/remainderUnsigned
+Integer/reverse
+Integer/reverseBytes
+Integer/rotateLeft
+Integer/rotateRight
+Integer/serialVersionUID
+Integer/signum
+Integer/sizeTable
+Integer/sum
+Integer/toBinaryString
+Integer/toHexString
+Integer/toOctalString
+Integer/toString
+Integer/toUnsignedLong
+Integer/toUnsignedString
+Integer/valueOf
+
+user=> (time (reduce + (range 101)))
+"Elapsed time: 0.097959 msecs"
+5050
+
+lein new proj
+tree proj
+proj
+├── CHANGELOG.md
+├── LICENSE
+├── README.md
+├── doc
+│   └── intro.md
+├── project.clj
+├── resources
+├── src
+│   └── proj
+│       └── core.clj
+└── test
+    └── proj
+        └── core_test.clj
+
 
