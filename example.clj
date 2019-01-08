@@ -58,6 +58,19 @@ user=> (seq "hello")
 user=> (frequencies "hello")
 {\h 1, \e 1, \l 2, \o 1}
 
+user=> (dotimes [i 5] (prn i))
+0
+1
+2
+3
+4
+nil
+
+user=> (into #{} (range 10))
+#{0 7 1 4 6 3 2 9 5 8}
+user=> (into (sorted-set) (range 10))
+#{0 1 2 3 4 5 6 7 8 9}
+
 user=> (every? #(Character/isLetter %) "hello")
 true
 
@@ -71,6 +84,25 @@ user=> (next '(1 2 3))
 (2 3)
 user=> (last '(1 2 3))
 3
+
+user=> (-> 10 (/ 5))
+2
+user=> (->> 10 (/ 5))
+1/2
+user=> (->> 10 (/ 5) (inc))
+3/2
+user=> (-> 10 (/ 5) (inc))
+3
+
+user=> (disj #{:a :b :c} :a)
+#{:c :b}
+user=> (disj #{:a :b :c} :a :b)
+#{:c}
+
+user=> (type {})
+clojure.lang.PersistentArrayMap
+user=> (type #{})
+clojure.lang.PersistentHashSet
 
 clojure.string/blank?
 clojure.string/capitalize
@@ -166,6 +198,11 @@ Math/twoToTheDoubleScaleDown
 Math/twoToTheDoubleScaleUp
 Math/ulp
 
+user=> (shuffle (range 10))
+[3 8 2 4 1 5 9 0 6 7]
+
+
+
 Integer/BYTES
 Integer/DigitOnes
 Integer/DigitTens
@@ -218,6 +255,9 @@ user=> (time (reduce + (range 101)))
 "Elapsed time: 0.097959 msecs"
 5050
 
+user=> (def add-by-two (partial + 2))
+#'user/add-by-two
+
 lein new proj
 tree proj
 proj
@@ -234,5 +274,4 @@ proj
 └── test
     └── proj
         └── core_test.clj
-
 
